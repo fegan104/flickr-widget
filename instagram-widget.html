@@ -1,0 +1,63 @@
+<link rel="import" href="/bower_components/polymer/polymer.html">
+<link rel="import" href="/bower_components/paper-card/paper-card.html">
+<link rel="import" href="/bower_components/iron-ajax/iron-ajax.html">
+
+<!--
+`instagram-widget`
+A material instagram widget for the new VPC dashbaord
+
+@demo demo/index.html
+@author Frank Egan (fegan@wpi.edu)
+-->
+
+<dom-module id="instagram-widget">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      paper-card {
+        max-width: 400px;
+        --paper-card-header-color:white;
+        --paper-card-background-color:#bc2a8d;
+        --paper-card-content: {background:white};
+      }
+      .content{
+        max-height: 256px;
+        overflow: auto;
+      }
+    </style>
+    <!-- Instagram AJAX -->
+    <iron-ajax auto
+    url="https://shielded-badlands-99959.herokuapp.com/instagram" 
+    handle-as="json"
+    last-response="{{instas}}"></iron-ajax>
+    <!-- Widget Content -->
+    <paper-card heading="Recent Instagrams">
+      <div class="card-header"></div>
+      <div class="card-content content">
+        <!-- dom-repeat -->
+        <template is="dom-repeat" items="{{instas}}">
+          <div>
+            <img src="[[item.images.low_resolution.url]]">
+          </div>
+        </template>
+      </div>
+    </paper-card>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'instagram-widget',
+
+      properties: {
+        prop1: {
+          type: String,
+          value: 'instagram-widget',
+        },
+      },
+
+    });
+  </script>
+</dom-module>
