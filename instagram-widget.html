@@ -9,15 +9,18 @@ A material instagram widget for the new VPC dashbaord
 @demo demo/index.html
 @author Frank Egan (fegan@wpi.edu)
 -->
-
 <dom-module id="instagram-widget">
   <template>
     <style>
       :host {
         display: block;
       }
+      .ig {
+        height: 128px;
+        width: 32%;
+      }
       paper-card {
-        max-width: 400px;
+        max-width: 30wv;
         --paper-card-header-color:white;
         --paper-card-background-color:#bc2a8d;
         --paper-card-content: {background:white};
@@ -28,36 +31,34 @@ A material instagram widget for the new VPC dashbaord
       }
     </style>
     <!-- Instagram AJAX -->
-    <iron-ajax auto
+    <!-- <iron-ajax auto
     url="https://shielded-badlands-99959.herokuapp.com/instagram" 
     handle-as="json"
-    last-response="{{instas}}"></iron-ajax>
+    last-response="{{instas}}"></iron-ajax> -->
+    <!-- Giphy ajax -->
+    <iron-ajax 
+      auto
+      url="http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC" 
+      handle-as="json"
+      last-response="{{instas}}">
+    </iron-ajax>
     <!-- Widget Content -->
     <paper-card heading="Recent Instagrams">
       <div class="card-header"></div>
       <div class="card-content content">
         <!-- dom-repeat -->
-        <template is="dom-repeat" items="{{instas}}">
-          <div>
-            <img src="[[item.images.low_resolution.url]]">
-          </div>
+        <template is="dom-repeat" items="{{instas.data}}">
+          <img class="ig" src="[[item.images.fixed_height_still.url]]">
         </template>
       </div>
     </paper-card>
-  </template>
+</template>
 
-  <script>
-    Polymer({
-
-      is: 'instagram-widget',
-
-      properties: {
-        prop1: {
-          type: String,
-          value: 'instagram-widget',
-        },
-      },
-
-    });
-  </script>
+<script>
+  Polymer({
+    is: 'instagram-widget',
+    properties: {
+    },
+  });
+</script>
 </dom-module>
