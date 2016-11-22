@@ -1,5 +1,4 @@
 <link rel="import" href="/bower_components/polymer/polymer.html">
-<link rel="import" href="/bower_components/paper-card/paper-card.html">
 <link rel="import" href="/bower_components/iron-ajax/iron-ajax.html">
 
 <!--
@@ -43,15 +42,12 @@ A material instagram widget for the new VPC dashbaord
       last-response="{{instas}}">
     </iron-ajax>
     <!-- Widget Content -->
-    <paper-card heading="Recent Instagrams">
-      <div class="card-header"></div>
-      <div class="card-content content">
-        <!-- dom-repeat -->
-        <template is="dom-repeat" items="{{instas.data}}">
-          <img class="ig" src="[[item.images.fixed_height_still.url]]">
-        </template>
-      </div>
-    </paper-card>
+    <div class="content">
+      <!-- dom-repeat -->
+      <template is="dom-repeat" items="{{instas.data}}">
+        <img class="ig" src="[[item.images.fixed_height_still.url]]">
+      </template>
+    </div>
 </template>
 
 <script>
