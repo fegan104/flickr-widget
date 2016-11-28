@@ -13,6 +13,10 @@ A material instagram widget for the new VPC dashbaord
     <style>
       :host {
         display: block;
+        width: 100%;
+        height:100%;
+        max-height: inherit;
+        overflow: auto;
       }
       .ig {
         height: 128px;
@@ -24,10 +28,6 @@ A material instagram widget for the new VPC dashbaord
         --paper-card-background-color:#bc2a8d;
         --paper-card-content: {background:white};
       }
-      .content{
-        max-height: 256px;
-        overflow: auto;
-      }
     </style>
     <!-- Instagram AJAX -->
     <!-- <iron-ajax auto
@@ -37,17 +37,14 @@ A material instagram widget for the new VPC dashbaord
     <!-- Giphy ajax -->
     <iron-ajax 
       auto
-      url="http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC" 
+      url="http://api.giphy.com/v1/gifs/search?q=doge&api_key=dc6zaTOxFJmzC" 
       handle-as="json"
       last-response="{{instas}}">
     </iron-ajax>
     <!-- Widget Content -->
-    <div class="content">
-      <!-- dom-repeat -->
-      <template is="dom-repeat" items="{{instas.data}}">
-        <img class="ig" src="[[item.images.fixed_height_still.url]]">
-      </template>
-    </div>
+    <template is="dom-repeat" items="{{instas.data}}">
+      <img class="ig" src="[[item.images.fixed_height_still.url]]">
+    </template>
 </template>
 
 <script>
