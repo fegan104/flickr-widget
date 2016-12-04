@@ -1,6 +1,6 @@
-# \<instagram-widget\>
+# \<flickr-widget\>
 
-A material instagram widget fo rthe new VPC dashbaord
+A material flickr widget fo rthe new VPC dashbaord
 
 ## Install the Polymer-CLI
 

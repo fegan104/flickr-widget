@@ -4,25 +4,25 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <title>instagram-widget test</title>
+    <title>flickr-widget test</title>
 
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
     <script src="../../web-component-tester/browser.js"></script>
 
-    <link rel="import" href="../instagram-widget.html">
+    <link rel="import" href="../flickr-widget.html">
   </head>
   <body>
     <test-fixture id="basic">
       <template>
-        <instagram-widget></instagram-widget>
+        <flickr-widget></flickr-widget>
       </template>
     </test-fixture>
 
     <script>
-      suite('instagram-widget', function() {
+      suite('flickr-widget', function() {
         test('instantiating the element works', function() {
           var element = fixture('basic');
-          assert.equal(element.is, 'instagram-widget');
+          assert.equal(element.is, 'flickr-widget');
         });
       });
     </script>

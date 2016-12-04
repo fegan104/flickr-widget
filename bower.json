@@ -1,7 +1,7 @@
 {
-  "name": "instagram-widget",
-  "description": "A material instagram widget fo rthe new VPC dashbaord",
-  "main": "instagram-widget.html",
+  "name": "flickr-widget",
+  "description": "A material flickr widget fo rthe new VPC dashbaord",
+  "main": "flickr-widget.html",
   "dependencies": {
     "polymer": "Polymer/polymer#^1.4.0",
     "paper-card": "PolymerElements/paper-card#^1.1.4",
