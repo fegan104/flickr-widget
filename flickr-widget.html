@@ -18,19 +18,18 @@ A material flickr widget for the new VPC dashbaord
         overflow: auto;
       }
       img {
-        height: 128px;
-        width: 32%;
+          height: 68px;
+          width: 32%;
+          object-fit: cover;
       }
     </style>
     <iron-ajax auto
-    url="http://localhost:5002/flickr"
-    handle-as="json"
-    last-response="{{response}}"></iron-ajax>
+      url="https://gentle-temple-65667.herokuapp.com/flickr"
+      handle-as="json"
+      last-response="{{response}}"></iron-ajax>
     <!-- dom-repeat -->
     <template is="dom-repeat" items="{{response}}">
-      <div>
-        <img src="[[item.url_o]]">
-      </div>
+      <img src="[[item.url_t]]">
     </template>
   </template>
 
